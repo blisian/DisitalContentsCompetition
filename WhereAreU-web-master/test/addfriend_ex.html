@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web</title>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+
+	<input type="text" id="add">
+	<button type="button" id="btn">send</button>
+
+
+	<script type="text/javascript">
+		$(function(){
+			$("#btn").click(function login(){
+				friend = $("#add").val();
+				name = "admin";
+				$.ajax({
+					method:"POST",
+					data:{"id":name,"Fid":friend},
+					datatype:"json",
+					url:"http://hansung.info:3000/addfriend",
+
+					success:function(data){
+						location.href="group.html?admin"
+					},
+					error:function(){
+						alert("siabl")
+					}
+
+				});
+
+			});
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WhereAreU</title>
+	<meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="css/login.css">
+     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+
+	<div id="loginBox">
+		
+		<div id="loginText">
+            <h1 id="frWord">Where</h1><h1 id="are">Are</h1><h1>U</h1>
+		</div>
+
+		<div class="loginContent">
+
+			<input type="textbox" id="id" placeholder="  ID">
+			<input type="password" id="password" placeholder="  Password">
+		
+            <button id="login">Login</button>
+			<a href="signup.html">Sign Up</a>
+
+		</div>
+
+	</div> 
+    <div id="introBox">
+        <div class="sideButton">
+            <p style="cursor:pointer" id="leftBtn"><</p>
+        </div>
+            
+        <div class="introContent">
+            <iframe id="iframe_box" src="list/list_index.html"></iframe>
+        </div>
+            
+        <div class="sideButton">
+            <p style="cursor:pointer" id="rightBtn">></p>  
+        </div>
+    </div>
+	<script type="text/javascript">
+    		$(function(){
+		  		$("#login").click(function login(){
+		  			id = $("#id").val();
+		  			pass = $("#password").val();
+		  			login_url = "http://hansung.info:3000/login";
+		  			
+		  			$.ajax({
+		  				method: "POST",
+		  				url : login_url,
+		  				datatype : "json",
+		  				data : {"id":id ,"pw":pass },
+		  				success:function(data){
+		  					window.location.href="group.html?"+id;
+		  				},
+		  				error:function(){
+		  					alert("Error-Login-Fail");
+		  				}
+		  			});
+		  		});
+		  	});
+	</script>
+    <script type="text/javascript" src="js/btn_click.js"></script>
+</body>
+</html>

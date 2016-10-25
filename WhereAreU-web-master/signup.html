@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dicon-Web</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="css/signup.css">
+     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+
+	<div id="loginBox">
+		
+		<div id="loginText">
+            <h1>Where</h1><h1 id="are">Are</h1><h1>U</h1>
+		</div>
+
+		<div class="loginContent">
+
+			<input type="textbpx" id="username" placeholder="UserName">
+			<input type="textbox" id="id" placeholder="  ID">
+			<input type="textbox" id="password" placeholder="  Password">
+		
+			<input type="button" id="login" value="SignUp">
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+    		$(function(){
+		  		$("#login").click(function signin(){
+
+		  			user = $("#username").val();
+		  			id = $("#id").val();
+		  			pass = $("#password").val();
+
+		  			login_url = "http://hansung.info:3000/register";
+
+
+		  			$.ajax({
+		  				method: "POST",
+		  				url : login_url,
+		  				datatype : "json",
+		  				data : {"username":user,"id":id ,"pw":pass },
+
+		  				success:function(data){
+		  					location.replace("index.html");
+		  				},
+		  				error:function(){
+		  					alert("Sign-Up-error");
+		  				}
+		  			});
+		  		});
+		  	});
+		   </script>
+
+</body>
+</html>

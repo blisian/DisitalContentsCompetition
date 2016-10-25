@@ -1,0 +1,73 @@
+<html>
+<head>
+  <title>WhereAreU</title>
+  <meta charset="UTF-8">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/group.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js" charset="utf-8"></script>
+  <meta name="viewport" content="width=device-width">
+  <script type="text/javascript">
+     log_data = location.href.split("?");
+      
+     id = log_data[1];
+     
+     name = id.substring(0,1).toUpperCase()+id.substring(1,id.length);
+  </script>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div>
+            <a><span>Setting</span></a>
+            <div  id="set" style="z-index:1;">
+                <a href="index.html">LogOut</a>
+            </div>
+        </div>
+
+        
+      
+    </nav>
+</header>
+<h1>참가하고 싶은 방을 클릭해주세요!</h1>
+<p>JangHun</p>
+
+
+
+<div id="columns">
+  <figure><button type="button" onclick="send_map();">
+  <img  src="img/test.jpg">
+  <figcaption>Test</figcaption>
+  </button></figure>
+  
+  
+  </div>
+  <script type="text/javascript">
+    
+    function send_map(){
+      window.location.href="map_inchat.html?"+id;
+    }
+  </script>
+    <script type="text/javascript">
+      $(function(){
+
+            get_url = "http://hansung.info:3000/getfriendlist"
+            var make_list = null;
+            set_friend = document.getElementById('set-friend-list');
+            $.ajax({
+              method: "POST",
+              url : get_url,
+              datatype : "json",
+              data : {"id":id},
+
+              success:function(data){
+                alert("hell world")
+              },
+              error:function(){
+                alert("error");
+              }
+            });  
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,73 @@
+<html>
+<head>
+	<title>WhereAreU</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	 <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'>
+   <link rel="stylesheet" href="css/group.css">
+
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+	 <script type="text/javascript">
+    var map;
+    function initMap(){
+      map = new google.maps.Map(document.getElementById('map'),{
+        center:{lat:37.54271689999999, lng:126.96636280000007},
+        zoom:15
+      });
+    }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6QSDa-2ZNbunYCNf_u_iAR7Yx6dtQHSc&callback=initMap">
+    </script>
+
+
+
+</head>
+<body>
+ <script type="text/javascript">
+
+      log_data = location.href.split("?");
+      id = log_data[1];
+</script>
+<header>
+		<nav>
+				<div>
+                    <a><span>Setting</span></a>
+                    <div id="logout" style= "z-index:1;">
+                        <a href="#">Map</a>
+                        <a href="#">Chat</a>
+                        <a href="index.html">LogOut</a>
+                    </div>
+                </div>
+
+
+		</nav>
+</header>
+
+<div class="full">
+
+
+
+<script type="text/javascript">
+  function friend_chat(name){
+    document.getElementById('chat_name').innerHTML ="<h4>"+name+"</h4>";
+  }
+</script>
+
+<div class="content">
+<div id ="map" style="height:93%; z-index:0;"></div>
+</div>
+</div>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js" charset="utf-8"></script>
+
+
+</body>
+</html>
